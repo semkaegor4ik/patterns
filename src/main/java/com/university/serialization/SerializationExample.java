@@ -12,7 +12,7 @@ public class SerializationExample {
         ,new RussianCar(80,"жигуль")
         ,new SportCar(675, "McClaren")).collect(Collectors.toList()));
         salonDatSerialize("salon.dat",salon);
-        salonJSONSerialize("salon.json", salon);
+        salonJSONSerialize("salon.txt", salon);
     }
 
     public static void salonDatSerialize(String fileName, Salon salon){

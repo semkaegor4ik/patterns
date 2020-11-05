@@ -1,5 +1,6 @@
 package com.university.serialization;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.AllArgsConstructor;
 
 import java.io.Serializable;

@@ -1,5 +1,5 @@
 package com.university.patterns.abstractfactory.interfaces;
 
-public interface IWhiteFigure {
+public interface IBishop {
     void show();
 }

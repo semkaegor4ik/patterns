@@ -10,7 +10,7 @@ import com.university.patterns.strategy.StrategyExample;
 public class Main {
 
     public static void main(String[] args) {
-        new FlyWeightExample().start();
+        new AbstractFactoryExample().start();
     }
 
 }

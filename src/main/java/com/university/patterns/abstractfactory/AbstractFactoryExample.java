@@ -1,10 +1,8 @@
 package com.university.patterns.abstractfactory;
 
 
-import com.university.patterns.abstractfactory.factories.BishopFactory;
-import com.university.patterns.abstractfactory.factories.KnightFactory;
-import com.university.patterns.abstractfactory.factories.PawnFactory;
-import com.university.patterns.abstractfactory.factories.RookFactory;
+import com.university.patterns.abstractfactory.factories.BlackChessFactory;
+import com.university.patterns.abstractfactory.factories.WhiteChessFactory;
 import com.university.patterns.abstractfactory.interfaces.IChessFactory;
 
 import java.util.Scanner;
@@ -15,16 +13,26 @@ public class AbstractFactoryExample {
 
     public void start() {
         IChessFactory chessFactory = createFigureFactory();
-        System.out.println("What the color of figure do you wanna create?\n" +
-                "1:WHITE\n" +
-                "2:BLACK\n");
+        System.out.println("What kind of figure do ypu wanna create?\n" +
+                "1:BISHOP\n" +
+                "2:KNIGHT\n" +
+                "3:PAWN\n" +
+                "4:ROOK");
         switch (scanner.nextInt()){
             case 1:{
-                chessFactory.createWhiteFigure().show();
-                break;
+               chessFactory.createBishop().show();
+               break;
             }
             case 2:{
-                chessFactory.createBlackFigure().show();
+                chessFactory.createKnight().show();
+                break;
+            }
+            case 3:{
+                chessFactory.createPawn().show();
+                break;
+            }
+            case 4:{
+                chessFactory.createRock().show();
                 break;
             }
             default:{
@@ -34,28 +42,26 @@ public class AbstractFactoryExample {
     }
 
     private IChessFactory createFigureFactory(){
-        System.out.println("What kind of figure do ypu wanna create?\n" +
-                "1:BISHOP\n" +
-                "2:KNIGHT\n" +
-                "3:PAWN\n" +
-                "4:ROOK");
+        System.out.println("What the color of figure do you wanna create?\n" +
+                "1:WHITE\n" +
+                "2:BLACK\n");
         switch (scanner.nextInt()){
             case 1:{
-                return new BishopFactory();
+                return new WhiteChessFactory();
             }
             case 2:{
-                return new KnightFactory();
-            }
-            case 3:{
-                return new PawnFactory();
-            }
-            case 4:{
-                return new RookFactory();
+                return new BlackChessFactory();
             }
             default:{
                 throw new IllegalArgumentException();
             }
         }
+
+
+    }
+
+    public static void main(String[] args) {
+        new AbstractFactoryExample().start();
     }
 
 }
