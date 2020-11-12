@@ -1,10 +1,8 @@
 package com.university.patterns.abstractfactory.interfaces;
 
+import com.university.patterns.abstractfactory.models.ChessColor;
+import com.university.patterns.abstractfactory.models.Figure;
+
 public interface IChessFactory {
-    IPawn createPawn();
-    IBishop createBishop();
-    IKnight createKnight();
-    IRook createRock();
-    IKing createKing();
-    IQueen createQueen();
+    IFigure createFigure(Figure figure, ChessColor color);
 }

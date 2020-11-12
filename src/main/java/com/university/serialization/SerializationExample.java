@@ -1,6 +1,7 @@
 package com.university.serialization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import java.io.*;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ public class SerializationExample {
         ,new SportCar(675, "McClaren")).collect(Collectors.toList()));
         salonDatSerialize("salon.dat",salon);
         salonJSONSerialize("salon.txt", salon);
+        salonXMLSerialize("salon.xml", salon);
     }
 
     public static void salonDatSerialize(String fileName, Salon salon){
@@ -34,6 +36,17 @@ public class SerializationExample {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static void salonXMLSerialize(String fileName, Salon salon){
+        XmlMapper mapper = new XmlMapper();
+        try {
+            mapper.writeValue(new File(fileName), salon);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
