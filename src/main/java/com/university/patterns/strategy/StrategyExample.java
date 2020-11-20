@@ -16,4 +16,8 @@ public class StrategyExample {
         epam.work();
         netcracker.work();
     }
+
+    public static void main(String[] args) {
+        new StrategyExample().start();
+    }
 }
